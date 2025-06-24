@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marginal Contributions</title>
+    <link rel="icon" type="image/png" href="https://lenwhite.github.io/icon.png" />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/Excalifont-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/ShantellSans-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/FiraCode-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="https://lenwhite.github.io/style.css" />
+  </head>
+
+  <body>
+    <div class="layout-grid">
+      <div class="layout-content">
+        <header class="layout-page-title">
+          
+<h1>+1 on plan mode is dead</h1>
+
+<div class="post-meta">
+  <time datetime="2026-09-27T04:52:34Z"
+    >September 27, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/programming/"
+        >programming</a
+      >
+    </li></ul></div>
+ 
+        </header>
+        <main> <p>C.f. <a rel="external" href="https://www.aymannadeem.com/artificial/intelligence,/developer/tools/2026/09/24/plan-mode-is-dead.html">plan mode is dead</a></p>
+<figure>
+<img src="https://lenwhite.github.io/processed_images/plan-mode-is-dead-midwit-meme.4ed10c312f8d2329.png" alt="Midwit meme comparing AI coding workflows through chat threads" />
+</figure>
+<span id="continue-reading"></span>
+<blockquote>
+<p>Thinking through what to build, why it matters, and evaluating decisions remains important. People need to build a coherent mental model of what’s going on, but I don’t think a large body of AI-generated text is the right interface for that. Working through decisions in chat feels more intuitive, but keeping that understanding up to date as the system changes is still an open problem.</p>
+<p>That problem gets harder as you go from five agents to hundreds. Keeping up can’t mean reading every conversation and trying to prompt an explanation for each code change. Agents need to identify the fewest places where human attention can have the greatest impact and surface enough context to make that attention useful.</p>
+<p>We still haven’t solved how to help people stay oriented as hundreds of increasingly capable agents change a system at once. But I think the deeper problem, which is how humans understand systems, navigate complex information hierarchies and use powerful tools, is an enduring one. Interfaces keep changing alongside with the technology that powers them; the need to make complexity comprehensible doesn’t.</p>
+</blockquote>
+<p>This problem predates AI agents. If you've ever written a spec and implemented it, you've watched your design drift for good reasons. Maybe you found a new edge case or failure mode. Maybe an upstream dependency misbehaved — a package or API not living up to its advertising<sup class="footnote-reference" id="fr-1-1"><a href="https://lenwhite.github.io/blog/plan-mode-is-dead/#fn-1">[1]</a></sup>. Maybe a requirement changed mid-implementation, forcing a new approach<sup class="footnote-reference" id="fr-2-1"><a href="https://lenwhite.github.io/blog/plan-mode-is-dead/#fn-2">[2]</a></sup>.</p>
+<p>Large software teams working on the same system have always compounded it. Worse, when teams sit in remote timezones that make communication hard, cross-team code reviews become impractical. Teams end up with drifting views of the same system, making technical decisions that are locally optimal but globally less so.</p>
+<p>This drift is what rots software: as understanding it becomes impractical, the code grows hard to maintain while keeping the whole system coherent.</p>
+<p>All agentic coding does is accelerate this.</p>
+<hr />
+<p>On an individual level: if you own a codebase, you can't lose your understanding of it. Become a <a rel="external" href="https://gruhn.me/blog/2026-08-03/">meat proxy</a> and this is your future:</p>
+<blockquote>
+<p>...users start to report a weird bug. It's the 4th time your team has been trying to fix it. I mean... asking AI to fix it. Unfortunately, it seems like not even Fable can figure it out.</p>
+<p>You go talk to the person who worked on this feature.</p>
+<blockquote>
+<p>"So where does the data come from?"</p>
+<p>"Hmm... actually I don't know. Let me ask Claude."</p>
+</blockquote>
+<p>You sit next to each other watching an endless wall of text appear on the screen. Neither of you has any idea whether any of it is true but Claude seems very confident.</p>
+<p>"Let's just turn on ultracode and ask it to double-check?"</p>
+<p>This one will take a while. You start talking about the latest drama on X.</p>
+<p>You finally get an answer back.</p>
+<blockquote>
+<p>"Does this make any sense to you?"</p>
+<p>"I'm not sure."</p>
+<p>"Didn't you build this like... last week?"</p>
+</blockquote>
+</blockquote>
+<p>— <a rel="external" href="https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html">Read more h/t Florian Herrengt</a></p>
+<p>Read the MRs agents generate. Look for what they can do better. Fix your code's structure so agents write the way you want, <em>without</em> encoding assumptions into <code>AGENTS.md</code>. Periodically dive into the code. Aggressively cull, refactor, and sculpt the codebase so it still makes sense to you, to pay down technical debt<sup class="footnote-reference" id="fr-3-1"><a href="https://lenwhite.github.io/blog/plan-mode-is-dead/#fn-3">[3]</a></sup>.</p>
+<p>Keep enough of the codebase in your head to know:</p>
+<ul>
+<li>the blast radius of any proposed change (just CRUD? extending an established pattern? new plumbing or abstractions? entirely reliant on upstream dependencies?)</li>
+<li>where the likely culprit is when something goes wrong</li>
+<li>whether you can or should extend the product</li>
+</ul>
+<hr />
+<p>The other part of the solution — more speculative — is organizational: Conway's Law. Split codebases and services into self-contained units, each understood through its well-defined product scope and contracts. Basically what Amazon has been doing.</p>
+<p>But with AI coding, we may need <em>even more granular splits</em>. One pizza team instead of two pizza teams? Because 1) a smaller team using agentic coding may now match or exceed a larger team's velocity, 2) smaller teams keep their product complexity in check, paradoxically — team size caps the service's complexity at what a small team can handle, and 3) every individual now has to understand only a smaller system.</p>
+<p>Maintaining a global understanding remains a problem<sup class="footnote-reference" id="fr-4-1"><a href="https://lenwhite.github.io/blog/plan-mode-is-dead/#fn-4">[4]</a></sup>, but solving that is out of my wheelhouse for now.</p>
+<hr />
+<p>P.S. Possibly useful tool from the Hacker News comments: <a rel="external" href="https://docs.plannotator.ai/open-source/start/quickstart">Plannotator</a>.</p>
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-1">
+<p>You can and should verify some of this via <a rel="external" href="https://en.wikipedia.org/wiki/Spike_(software_development)">Spikes</a>. <a href="https://lenwhite.github.io/blog/plan-mode-is-dead/#fr-1-1">↩</a></p>
+</li>
+<li id="fn-2">
+<p>Unknown unknowns, by definition, can't be known ahead of time. That's also why agile dominates software development these days — we expect unknown unknowns, so we limit our planning horizon and start delivery early, to run into them sooner rather than later. <a href="https://lenwhite.github.io/blog/plan-mode-is-dead/#fr-2-1">↩</a></p>
+</li>
+<li id="fn-3">
+<p>Pre-agentic coding, aggressive preemptive refactoring was YAGNI and failed cost-benefit analysis most of the time. It made the codebase better and more amenable to understanding, and could save time on future work — but it added no new features while increasing regression and bug surface. Agentic coding has changed the calculus: "refactor this while keeping tests working through all edge cases" is something modern coding agents are excellent at. <a href="https://lenwhite.github.io/blog/plan-mode-is-dead/#fr-3-1">↩</a></p>
+</li>
+<li id="fn-4">
+<p>The fix is probably organizational and engineering culture, in some form. <a href="https://lenwhite.github.io/blog/plan-mode-is-dead/#fr-4-1">↩</a></p>
+</li>
+</ol>
+</section>
+
+<nav class="page-navigation page-navigation-single" aria-label="Back to home">
+  <a href="https://lenwhite.github.io/">← Back to home</a>
+</nav>
+</main>
+      </div>
+      <aside class="layout-sidebar">
+        <div class="layout-blog-title">
+          <h1>
+            <a
+              href="https://lenwhite.github.io/"
+              class="title-link"
+              >Marginal Contributions</a
+            >
+          </h1>
+          <em>by @lenwhite</em>
+        </div>
+        <div class="layout-sidebar-content">
+          <p class="subtitle">
+            A collection of personal notes, lessons, and learnings, contributing
+            at the margin to the sum of recorded human experiences. Or maybe I'm
+            just adding noise.
+          </p>
+          <nav aria-label="Site navigation">
+            <p><a href="https://lenwhite.github.io/about/">About</a></p>
+            <p>
+              <a href="https://lenwhite.github.io/tags/"
+                >Tags</a
+              >
+            </p>
+          </nav>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>
