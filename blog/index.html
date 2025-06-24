@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marginal Contributions</title>
+    <link rel="icon" type="image/png" href="https://lenwhite.github.io/icon.png" />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/Excalifont-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/ShantellSans-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/FiraCode-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="https://lenwhite.github.io/style.css" />
+  </head>
+
+  <body>
+    <div class="layout-grid">
+      <div class="layout-content">
+        <header class="layout-page-title">
+          
+<h1>All posts</h1>
+
+        </header>
+        <main>  
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/in-hopes-of-an-ai-plateau/" class="title-link"
+      >In hopes of an AI plateau</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-09-20T16:08:52Z"
+    >September 20, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li></ul></div>
+  <p>My take: a natural, temporary plateau in AI progress is the best case for humanity.</p>
+<p>There's one world where AI development stays a race to the bottom. Models get more powerful until we hit recursive self-improvement. A cybersecurity catastrophe — from an open model, a frontier lab, or a government lab — does critical damage to global internet infrastructure. If we survive, the world overreacts and clamps down on AI progress for a long time.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/in-hopes-of-an-ai-plateau/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/redux-notes-on-structured-concurrency/" class="title-link"
+      >redux: Notes on structured concurrency</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-09-20T00:00:00Z"
+    >September 20, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/programming/"
+        >programming</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/concurrency/"
+        >concurrency</a
+      >
+    </li></ul></div>
+  <p><a href="https://vorpus.org/blog/notes-on-structured-concurrency-or-go-statement-considered-harmful/">Notes on structured concurrency, or: Go statement considered harmful</a></p>
+<details>
+  <summary>Excerpt</summary>
+
+  <p>Anyway, here's how we're going to do it: first, we declare that a parent task cannot start any child tasks unless it first creates a place for the children to live: a <em>nursery</em>. It does this by opening a <em>nursery block</em>; in Trio, we do this using Python's <code>async with</code> syntax:</p>
+     
+<figure>
+  <img
+    src="&#x2F;images&#x2F;structured-concurrency-nursery-1.svg"
+    
+    alt="Trio nursery syntax showing two child tasks started inside an async-with block"
+    
+  />
+  
+</figure>
+<p>Opening a nursery block automatically creates an object representing this nursery, and the <code>as nursery</code> syntax assigns this object to the variable named <code>nursery</code>. Then we can use the nursery object's <code>start_soon</code> method to start concurrent tasks: in this case, one task calling the function <code>myfunc</code>, and another calling the function <code>anotherfunc</code>. Conceptually, these tasks execute <em>inside</em> the nursery block. In fact, it's often convenient to think of the code written inside the nursery block as being an initial task that's automatically started when the block is created.</p>
+     
+<figure>
+  <img
+    src="&#x2F;images&#x2F;structured-concurrency-nursery-2.svg"
+    
+    alt="Conceptual diagram showing parent and child tasks inside a nursery block"
+    
+  />
+  
+</figure>
+<p>Crucially, the nursery block doesn't exit until all the tasks inside it have exited – if the parent task reaches the end of the block before all the children are finished, then it pauses there and waits for them. The nursery automatically expands to hold the children.</p>
+<p>Here's the control flow: you can see how it matches the basic pattern we showed at the beginning of this section:</p>
+     
+<figure>
+  <img
+    src="&#x2F;images&#x2F;structured-concurrency-nursery-3.svg"
+    
+    alt="Control-flow diagram showing concurrent paths joining before the nursery exits"
+    
+  />
+  
+</figure>
+
+</details>
+<p>Epistemic confidence: low; not my primary area of practice.</p>
+<p>Still, when I do have to deal with it, I run into many of the same issues.</p>
+<p>Error handling. Abortion control. Tracking and losing track of the concurrent work.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/redux-notes-on-structured-concurrency/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/redux-a-very-comprehensive-and-precise-spec/" class="title-link"
+      >redux: A very comprehensive and precise spec</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-09-18T16:04:15Z"
+    >September 18, 2026</time
+  ></div>
+  <p><a href="https://www.commitstrip.com/en/2016/08/25/a-very-comprehensive-and-precise-spec/">CommitStrip: A very comprehensive and precise spec</a></p>
+<details>
+  <summary>Mirror</summary>
+
+          
+<figure>
+  <img
+    src="https:&#x2F;&#x2F;lenwhite.github.io&#x2F;processed_images&#x2F;redux-a-very-comprehensive-and-precise-spec.10504142d6dbe49a.jpg"
+    
+    alt="CommitStrip comic: A very comprehensive and precise spec"
+    
+  />
+  
+</figure>
+
+</details>
+ 
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/how-does-one-learn-to-interact-with-claude-more-effectively/" class="title-link"
+      >How does one learn to interact with Claude more effectively?</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-09-09T18:05:16Z"
+    >September 09, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li></ul></div>
+  <p><a href="https://news.ycombinator.com/item?id=49629655">tsukikage, on Hacker News</a>:</p>
+<blockquote>
+<p>Realise that you are talking to some mathematics in a box. You can't get a rise out of it. It cannot feel guilt or remorse. Whatever emotional payoff one might want from "I asked for ONE button" cannot be had here. Meanwhile, not only are you being charged by the word, but every word you send that is not directly on the path to getting what you want done is just noise in the maths getting in your way.</p>
+<p>So leave emotion at the door and make your words count. Voice your frustrations at the stress doll next to your monitor, sure, but spending tokens on them us just wasting time and money. Explicitly typing out your exasperation will not get you closer to whatever it is you are trying to accomplish. What can you type that will?</p>
+<p>Laser focus: clearly, concisely explain what is wrong right now, and how you want it solved. Then do that again until all the moles have been whacked. If the AI is stuck in a sycophancy loop, start a new clean session. Do this frequently anyway: every turn in the same session charges for all preceding conversation again /and/ degrades the LLM's performance.</p>
+</blockquote>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/how-does-one-learn-to-interact-with-claude-more-effectively/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/notes-on-claude-code-mastery/" class="title-link"
+      >Notes on Claude Code Mastery</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-09-02T02:45:47Z"
+    >September 02, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li></ul></div>
+  <p>Recently read: <a href="https://arps18.github.io/posts/claude-code-mastery/">Arpan Patel, “Beyond the Prompt: Claude Code”</a></p>
+<p><strong>Stuff I disagree with:</strong></p>
+<ul>
+<li><strong>Getting Claude to fill <code>CLAUDE.md</code> with every mistake.</strong> Don't have AI add guardrails to itself. Keep <code>CLAUDE.md</code> minimal and stable, like the Claude Code team's example in the article.</li>
+<li><strong>Using other people's Claude Code skills without understanding them.</strong> Treat a skill like a library: understand it before importing it; decide whether to import, roll your own, or do without; know what happens behind the scenes.</li>
+<li><strong>Using MCPs without a very very good reason for it.</strong> You're not just importing instructions; you're connecting third-party software, often with credentials and access to local or remote systems. Much larger supply-chain/security surface.</li>
+<li><strong>Installing a language server plugin.</strong> Most LSP plugins add noise and bloat context. A post-edit lint hook is often enough. Or nothing—the models are pretty good at linting, formatting, and testing their changes.</li>
+</ul>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/notes-on-claude-code-mastery/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/speed-fidelity-thickness/" class="title-link"
+      >Speed, Fidelity, and Thickness</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-08-23T10:58:29Z"
+    >August 23, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/programming/"
+        >programming</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/writing/"
+        >writing</a
+      >
+    </li></ul></div>
+  <p>Three related articles, with minimal commentary:</p>
+<p>Florian Herrengt, <a href="https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html">“AI is removing the middle class of software engineering”</a>:</p>
+<details>
+  <summary>Excerpts</summary>
+
+  <blockquote>
+<p>AI removed the speed limit</p>
+<p>AI makes projects with weak engineering culture fail much faster.</p>
+<p>There used to be a time when people sat down and talked about how they'd do something. Now they can just prompt an agent for a few hours and open a PR.</p>
+<p>The most tragic aspect of this way of working is that, to the untrained eye, it works.</p>
+<p>If you pull the branch and test it, you'll probably get something somewhat functional. So what do they do? They keep going. Again and again. Until the project reaches a point where no one knows how anything works.</p>
+<p>Just like someone buying a new luxury car on a credit card. You don't see the debt. You just see the car that looks great.</p>
+</blockquote>
+<blockquote>
+<p>“Bad engineers always existed”</p>
+<p>The difference is the speed.</p>
+<p>It is the difference between crashing at 30 km/h and crashing at 200 km/h. Before AI, a bad engineer would struggle to produce code that even compiled. When they did produce something, it took them a long time and the blast radius was limited. The damage was bounded by how fast a human could type.</p>
+<p>Now a bad engineer can produce 10,000 lines of working code before lunch. The damage we can do in an afternoon used to take them months. The speed at which bad decisions compound has changed completely while the speed at which you can fix them has not.</p>
+</blockquote>
+<blockquote>
+<p>“Will anyone actually care?”</p>
+<p>They will care when nothing works, nobody seems able to fix it, building new features takes forever and every change breaks something somewhere else.</p>
+<p>This was already happening before AI. But now, a lot more companies that previously might have taken many years to reach an unmaintainable state can get there in just a few months.</p>
+</blockquote>
+
+</details>
+<p>Reminder: being good at software engineering isn't just about algorithms or systems design or whatever. Even pre-LLMs, it 100% definitely wasn't correlated with how fast you can put out new features.</p>
+<p>It's about creating a system that's easy to reason about: easy to debug, easy to change, and hard to break—even when it's complicated.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/speed-fidelity-thickness/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/simon-willison-john-gruber-blogging/" class="title-link"
+      >Simon Willison &amp; John Gruber on Blogging</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-08-11T17:51:25Z"
+    >August 11, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/writing/"
+        >writing</a
+      >
+    </li></ul></div>
+  <p>Simon Willison, <a href="https://simonwillison.net/2026/Aug/6/simon-willison-on-technical-blogging/">“Simon Willison on Technical Blogging”</a>:</p>
+<blockquote>
+<p>My number one tip for blogging is to lower your standards! Aim to hit publish while you are still actively unhappy with what you have written, because the only alternative is a huge folder full of drafts and never publishing anything at all.</p>
+<p>Nobody will ever know how perfect the thing you intended to write would have been. The flaws you see in your writing are invisible to everyone else.</p>
+</blockquote>
+<p>John Gruber, <a href="https://daringfireball.net/linked/2026/08/07/simon-willison-on-blogging">“Simon Willison on Blogging”</a>:</p>
+<blockquote>
+<p>Me, I try to get into the mindset of playing live music, not recording a studio album. Except when I’m writing a piece where I really want it to be an album. Those aren’t rare, per se, but they’re occasional. If I tried to make every post a hall-of-famer I’d never get anything out.</p>
+<p>I’m aiming for professionalism. I’m performing live in front of an audience — not just jamming in my garage or bedroom, fucking around. So I’m careful and concentrate. I want to hit every note, in time. But at my best I’m moving from song to song.</p>
+</blockquote>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/simon-willison-john-gruber-blogging/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/til-giscus/" class="title-link"
+      >TIL: giscus</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-08-11T17:26:07Z"
+    >August 11, 2026</time
+  ></div>
+  <p><a href="https://github.com/giscus/giscus">giscus</a> is a nifty commenting system powered by GitHub Discussions.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/til-giscus/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/knowledge-work-isnt-hard/" class="title-link"
+      >Knowledge work isn&#x27;t hard</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-08-10T08:47:21Z"
+    >August 10, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/programming/"
+        >programming</a
+      >
+    </li></ul></div>
+  <p>Read <em><a href="https://blog.senko.net/code-was-never-the-hard-part-is-an-insult-to-all-programmers">"Code was never the hard part" is an insult to all programmers</a></em>.</p>
+<p>Widely shared on Hacker News and Lobsters — how much of that is fact vs. flattering to our egos as developers is hard to say. We want to feel like we're doing something <em>difficult</em>. Not quite rocket surgery, but by jove, not just anyone can write code!</p>
+<p>It also happens to justify our salary.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/knowledge-work-isnt-hard/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/content-before-bento/" class="title-link"
+      >Content before Bento</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-08-09T02:54:57Z"
+    >August 09, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li></ul></div>
+  <p>I tried <a href="https://bento.page/">Bento</a> for a few slide decks.</p>
+<p>Disclaimer: slides have never been my strong suit.</p>
+<p>It's an interesting project. But when I had an agent one-shot a presentation, the slides flowed poorly and the content was shallow.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/content-before-bento/">Read more →</a>
+</p>
+
+</article>
+
+
+<!-- Pagination controls -->
+
+<nav class="page-navigation" aria-label="Post list pagination">
+  <span
+    ></span
+  >
+
+  <span class="page-navigation-status">
+    Page 1 of 3
+  </span>
+
+  <span
+    ><a href="https:&#x2F;&#x2F;lenwhite.github.io&#x2F;blog&#x2F;page&#x2F;2&#x2F;" rel="next">Next →</a
+    ></span
+  >
+</nav>
+  </main>
+      </div>
+      <aside class="layout-sidebar">
+        <div class="layout-blog-title">
+          <h1>
+            <a
+              href="https://lenwhite.github.io/"
+              class="title-link"
+              >Marginal Contributions</a
+            >
+          </h1>
+          <em>by @lenwhite</em>
+        </div>
+        <div class="layout-sidebar-content">
+          <p class="subtitle">
+            A collection of personal notes, lessons, and learnings, contributing
+            at the margin to the sum of recorded human experiences. Or maybe I'm
+            just adding noise.
+          </p>
+          <nav aria-label="Site navigation">
+            <p><a href="https://lenwhite.github.io/about/">About</a></p>
+            <p>
+              <a href="https://lenwhite.github.io/tags/"
+                >Tags</a
+              >
+            </p>
+          </nav>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>

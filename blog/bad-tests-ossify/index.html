@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marginal Contributions</title>
+    <link rel="icon" type="image/png" href="https://lenwhite.github.io/icon.png" />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/Excalifont-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/ShantellSans-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/FiraCode-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="https://lenwhite.github.io/style.css" />
+  </head>
+
+  <body>
+    <div class="layout-grid">
+      <div class="layout-content">
+        <header class="layout-page-title">
+          
+<h1>Bad tests ossify</h1>
+
+<div class="post-meta">
+  <time datetime="2026-07-14T09:25:51Z"
+    >July 14, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/programming/"
+        >programming</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li></ul></div>
+ 
+        </header>
+        <main>
+<p>matklad’s <a href="https://matklad.github.io/2021/05/31/how-to-test.html">How to Test</a> is one of the best articles on testing. 10/10. Almost all of it is right.</p>
+<p>My own two cents: No tests beat <em>bad</em> tests.</p>
+<span id="continue-reading"></span>
+<p>Bad tests ossify abstractions, turn refactors into fights, slow CI, add flakiness, train people to ignore failures, and hand out false confidence.</p>
+<p>Premature tests do this too. When a codebase, its abstractions, and its use cases are still in flux, unit tests freeze the wrong shape in place. The team starts serving the tests instead of the product.</p>
+<p>Coding agents don’t fix this; they amplify it. They copy whatever testing patterns the codebase rewards and spread them everywhere.</p>
+<p>Coding agents (as of early 2026) struggle when bad tests clash with new logic. They have to decide whether the code is wrong or the test is stale. That call takes taste and judgment current models still lack. And like a human, they can also lose trust in tests and start bypassing them completely.</p>
+<p>Put as much care into your testing strategy as into the abstractions it protects. Test debt is easier to ignore than other tech debt. It hurts just as much.</p>
+<details>
+  <summary>Excerpts</summary>
+
+  <blockquote>
+<p>Good code is easy to delete. Tests represent an investment into existing code, and make it costlier to delete (or change).</p>
+<p>The solution is to write tests for features in such a way that they are independent of the code. I like to use the neural network test for this:</p>
+<p><strong>Neural Network Test</strong></p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Can you re-use the test suite if your entire software is replaced with an opaque neural network?
+</span></code></pre>
+</blockquote>
+<blockquote>
+<p>Nonetheless, some tests are going to be slow. It pays off to introduce the concept of slow tests early on, arrange the skipping of such tests by default and only exercise them on CI. You don’t need to be fancy, just checking an environment variable at the start of the test is perfectly fine:</p>
+</blockquote>
+<blockquote>
+<p>One apparent limitation of the style of integrated testing I am describing is checking for properties which are not part of the output. For example, if some kind of caching is involved, you might want to check that the cache is actually being hit, and is not just sitting there. But, by definition, cache is not something that an outside client can observe.</p>
+<p>The solution to this problem is to make this extra data a part of the system’s output by adding extra observability points. A good example here is Cargo’s test suite. It is set-up in an integrated, data-driven fashion. Each tests starts with a succinct DSL for setting up a tree of files on disk. Then, a full cargo command is invoked. Finally, the test looks at the command’s output and the resulting state of the file system, and asserts the relevant facts.</p>
+</blockquote>
+
+</details>
+
+<nav class="page-navigation page-navigation-single" aria-label="Back to home">
+  <a href="https://lenwhite.github.io/">← Back to home</a>
+</nav>
+</main>
+      </div>
+      <aside class="layout-sidebar">
+        <div class="layout-blog-title">
+          <h1>
+            <a
+              href="https://lenwhite.github.io/"
+              class="title-link"
+              >Marginal Contributions</a
+            >
+          </h1>
+          <em>by @lenwhite</em>
+        </div>
+        <div class="layout-sidebar-content">
+          <p class="subtitle">
+            A collection of personal notes, lessons, and learnings, contributing
+            at the margin to the sum of recorded human experiences. Or maybe I'm
+            just adding noise.
+          </p>
+          <nav aria-label="Site navigation">
+            <p><a href="https://lenwhite.github.io/about/">About</a></p>
+            <p>
+              <a href="https://lenwhite.github.io/tags/"
+                >Tags</a
+              >
+            </p>
+          </nav>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>

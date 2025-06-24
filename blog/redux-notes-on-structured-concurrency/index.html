@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marginal Contributions</title>
+    <link rel="icon" type="image/png" href="https://lenwhite.github.io/icon.png" />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/Excalifont-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/ShantellSans-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/FiraCode-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="https://lenwhite.github.io/style.css" />
+  </head>
+
+  <body>
+    <div class="layout-grid">
+      <div class="layout-content">
+        <header class="layout-page-title">
+          
+<h1>redux: Notes on structured concurrency</h1>
+
+<div class="post-meta">
+  <time datetime="2026-09-20T00:00:00Z"
+    >September 20, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/programming/"
+        >programming</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/concurrency/"
+        >concurrency</a
+      >
+    </li></ul></div>
+ 
+        </header>
+        <main>
+<p><a href="https://vorpus.org/blog/notes-on-structured-concurrency-or-go-statement-considered-harmful/">Notes on structured concurrency, or: Go statement considered harmful</a></p>
+<details>
+  <summary>Excerpt</summary>
+
+  <p>Anyway, here's how we're going to do it: first, we declare that a parent task cannot start any child tasks unless it first creates a place for the children to live: a <em>nursery</em>. It does this by opening a <em>nursery block</em>; in Trio, we do this using Python's <code>async with</code> syntax:</p>
+     
+<figure>
+  <img
+    src="&#x2F;images&#x2F;structured-concurrency-nursery-1.svg"
+    
+    alt="Trio nursery syntax showing two child tasks started inside an async-with block"
+    
+  />
+  
+</figure>
+<p>Opening a nursery block automatically creates an object representing this nursery, and the <code>as nursery</code> syntax assigns this object to the variable named <code>nursery</code>. Then we can use the nursery object's <code>start_soon</code> method to start concurrent tasks: in this case, one task calling the function <code>myfunc</code>, and another calling the function <code>anotherfunc</code>. Conceptually, these tasks execute <em>inside</em> the nursery block. In fact, it's often convenient to think of the code written inside the nursery block as being an initial task that's automatically started when the block is created.</p>
+     
+<figure>
+  <img
+    src="&#x2F;images&#x2F;structured-concurrency-nursery-2.svg"
+    
+    alt="Conceptual diagram showing parent and child tasks inside a nursery block"
+    
+  />
+  
+</figure>
+<p>Crucially, the nursery block doesn't exit until all the tasks inside it have exited – if the parent task reaches the end of the block before all the children are finished, then it pauses there and waits for them. The nursery automatically expands to hold the children.</p>
+<p>Here's the control flow: you can see how it matches the basic pattern we showed at the beginning of this section:</p>
+     
+<figure>
+  <img
+    src="&#x2F;images&#x2F;structured-concurrency-nursery-3.svg"
+    
+    alt="Control-flow diagram showing concurrent paths joining before the nursery exits"
+    
+  />
+  
+</figure>
+
+</details>
+<p>Epistemic confidence: low; not my primary area of practice.</p>
+<p>Still, when I do have to deal with it, I run into many of the same issues.</p>
+<p>Error handling. Abortion control. Tracking and losing track of the concurrent work.</p>
+<span id="continue-reading"></span>
+<p>A control flow construct or abstraction that tells you "at the end of this block - all tasks spawned have exited" neatly solves all of them.</p>
+<p>On the Python side, AnyIO is what I reach for these days. For Javascript/Typescript - it's less of a problem because the main event loop is single threaded, so (usually) no data races over shared memory (exception: workers, <code>SharedArrayBuffer</code>, etc.) But constructions like <code>Promise.all()</code>/<code>Promise.race()</code>/<code>Promise.any()</code> still leave e.g. <code>fetch</code>es running after we've given up on them. Manually wiring up abortion control fully means you'll end up reinventing the nursery concept - I don't think there's a worthwhile library here. For Rust, well, that's where I've more learning to do - Scoped threads can work, but not Tokio.</p>
+
+<nav class="page-navigation page-navigation-single" aria-label="Back to home">
+  <a href="https://lenwhite.github.io/">← Back to home</a>
+</nav>
+</main>
+      </div>
+      <aside class="layout-sidebar">
+        <div class="layout-blog-title">
+          <h1>
+            <a
+              href="https://lenwhite.github.io/"
+              class="title-link"
+              >Marginal Contributions</a
+            >
+          </h1>
+          <em>by @lenwhite</em>
+        </div>
+        <div class="layout-sidebar-content">
+          <p class="subtitle">
+            A collection of personal notes, lessons, and learnings, contributing
+            at the margin to the sum of recorded human experiences. Or maybe I'm
+            just adding noise.
+          </p>
+          <nav aria-label="Site navigation">
+            <p><a href="https://lenwhite.github.io/about/">About</a></p>
+            <p>
+              <a href="https://lenwhite.github.io/tags/"
+                >Tags</a
+              >
+            </p>
+          </nav>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>

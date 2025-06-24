@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marginal Contributions</title>
+    <link rel="icon" type="image/png" href="https://lenwhite.github.io/icon.png" />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/Excalifont-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/ShantellSans-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/FiraCode-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="https://lenwhite.github.io/style.css" />
+  </head>
+
+  <body>
+    <div class="layout-grid">
+      <div class="layout-content">
+        <header class="layout-page-title">
+          
+<h1>All posts</h1>
+
+        </header>
+        <main>  
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/postgres-survival-guide/" class="title-link"
+      >The startup&#x27;s Postgres survival guide</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-07-27T14:51:38Z"
+    >July 27, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/databases/"
+        >databases</a
+      >
+    </li></ul></div>
+  <p><a href="https://hatchet.run/blog/postgres-survival-guide">The startup's Postgres survival guide</a> — recommended.</p>
+<p>My TILs: <a href="https://www.cybertec-postgresql.com/en/benefits-of-a-descending-index">descending indexes</a>, sticking with simple joints to make life easier for the query planner, FOR UPDATE SKIP LOCK, autovaccum setting tuning.</p>
+<p>+1 on migrations:</p>
+<blockquote>
+<p>Getting really good at writing migrations is an important technical advantage: it helps you iterate much faster and increases your uptime. As a starting point, try to keep migrations additive (in other words, don't delete or remove columns) and run them in a transaction wherever possible; this will make rollbacks and partial migrations much easier to deal with. As you get more advanced, you can start looking into expand and contract migrations.</p>
+<p>The simplest mental model for good migrations is: does this block all of my writes, or does it not? Creating an index without CONCURRENTLY blocks all your writes, so you might see downtime. Generally, operations which call ALTER TABLE should be worth a second look; for example, adding a new check constraint to a very large table can block your writes as well (unless you add it with the NOT VALID keyword).</p>
+</blockquote>
+ 
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/the-base-error-rate/" class="title-link"
+      >The base error rate</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-07-19T13:51:29Z"
+    >July 19, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li></ul></div>
+  <p>Recently read Nikhil Suresh's <a href="https://ludic.mataroa.blog/blog/ai-mania-is-eviscerating-global-decision-making/">AI Mania Is Eviscerating Global Decision-Making</a>.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/the-base-error-rate/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/steelmanning-stochastic-terrorism/" class="title-link"
+      >Differentiating stochastic terrorism from normal criticism</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-07-17T08:42:10Z"
+    >July 17, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/politics/"
+        >politics</a
+      >
+    </li></ul></div>
+  <p>Re: <a href="https://www.astralcodexten.com/p/against-stochastic-terrorism">Against Stochastic Terrorism</a></p>
+<details>
+<summary>What is stochastic terrorism?</summary>
+<p>As per Scott’s article:</p>
+<blockquote>
+<p>Some other popular examples of the concept:</p>
+<p>“Stochastic terrorism” is the idea that if you spread fear and mistrust against a target, then eventually people will commit violence against that target, and it will be your fault, even if you never specifically said the words “you should commit violence”.</p>
+<p>Nativists spread fear and mistrust about Muslim immigrants, and then racists go on shooting sprees in mosques.</p>
+<p>The #Resistance insists that Donald Trump would destroy democracy, and then various people try to assassinate Donald Trump.</p>
+<p>Conservatives spread fear and mistrust about transgender people, and then bigots commit hate crimes against transgender people.</p>
+<p>Woke people say the police are racist and brutal, and then other woke people murder police officers.</p>
+<p>Socialists call health insurance companies greedy and accuse them of blocking life-saving treatment, and then Luigi Mangione murdered a health insurance CEO.</p>
+<p>AI safety activists say that Sam Altman’s AI could destroy humanity, and then a guy threw a Molotov cocktail at Sam Altman’s house.</p>
+<p>Liberals said that Charlie Kirk was a hatemonger who was driving Americans apart, and then an assassin murdered Charlie Kirk.</p>
+<p>The pro-life movement describes abortion as murder, and then pro-life activists assassinated abortion doctors and pro-choice politicians.</p>
+</blockquote>
+</details>
+<p>A weak post, below Scott’s usual standards.</p>
+<p>He begins by tainting the concept by association:</p>
+<blockquote>
+<p>“Stochastic terrorism” mostly gets deployed opportunistically, by people who either are too blinkered to realize that the same argument could be leveraged against their own speech, or who hope you’re too blinkered to realize that.</p>
+</blockquote>
+<p>True, but irrelevant to whether it’s a useful concept.</p>
+<p>He then argues no consistent principle can separate normal criticism from stochastic terrorism. He proposes weak candidate principles, knocks each down, and overreaches to the “liberal solution”:</p>
+<blockquote>
+<p>The liberal solution is none of these: it’s that it’s always legitimate to criticize any person or group however strongly, and never legitimate to use extra-state violence against them; if a violent act occurs, it’s 100% the fault of the perpetrator, and 0% the fault of other people who previously criticized the victim.</p>
+</blockquote>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/steelmanning-stochastic-terrorism/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/bad-tests-ossify/" class="title-link"
+      >Bad tests ossify</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-07-14T09:25:51Z"
+    >July 14, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/programming/"
+        >programming</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li></ul></div>
+  <p>matklad’s <a href="https://matklad.github.io/2021/05/31/how-to-test.html">How to Test</a> is one of the best articles on testing. 10/10. Almost all of it is right.</p>
+<p>My own two cents: No tests beat <em>bad</em> tests.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/bad-tests-ossify/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/substring-patterns/" class="title-link"
+      >Three patterns for substring and subarray questions</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-07-14T00:00:00Z"
+    >July 14, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/programming/"
+        >programming</a
+      >
+    </li></ul></div>
+  <p>Coding-interview substring and subarray problems often reduce to one of three patterns.</p>
+<h2 id="1-sliding-window-two-pointers">1. Sliding window (two pointers)</h2>
+<p>Use a sliding window when the constraint changes monotonically as you expand or shrink the window.</p>
+<ul>
+<li><strong>Use it for:</strong> substrings with “at most <code>K</code> distinct characters,” all unique characters, or subarrays with sum constraints when all numbers are nonnegative.</li>
+<li><strong>Core idea:</strong> Expand <code>right</code> to include a new element. If the window becomes invalid, move <code>left</code> until it is valid again.</li>
+</ul>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/substring-patterns/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/voidloop-helps-me-sleep/" class="title-link"
+      >Voidloop helps me sleep</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-07-13T18:14:42Z"
+    >July 13, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/games/"
+        >games</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/habits/"
+        >habits</a
+      >
+    </li></ul></div>
+  <p><a href="https://store.steampowered.com/app/3803180/Voidloop/">Voidloop on Steam</a> is a simple incremental game for bed.</p>
+        
+<figure>
+  <img
+    src="https:&#x2F;&#x2F;lenwhite.github.io&#x2F;processed_images&#x2F;voidloop-steam-header.76007da2ff4a539a.jpg"
+    
+    alt="Voidloop official Steam header image"
+    
+  />
+  
+  <figcaption>uwu *lures you into the void of sleep*</figcaption>
+  
+</figure>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/voidloop-helps-me-sleep/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/exe-dev/" class="title-link"
+      >Stanning exe.dev</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-07-13T16:25:56Z"
+    >July 13, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li></ul></div>
+  <p>It's fast. It's fun. It's software prototyping, pet projects, and agent sandboxes rolled into one giant bouncy endorphin rollercoaster.</p>
+<p>For personal reasons, I'm late to the persistent-agents-and-coding-from-phones party. My home server died, and I couldn't summon the motivation to scavenge for parts. I've worked from laptops ever since: no persistence, no remote Claude Code sessions, no blinking lights.</p>
+<p>Anyway: exe.dev is the easiest way I've found to dip your toes into coding agents from your phone.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/exe-dev/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/communicating-expertise/" class="title-link"
+      >Communicating expertise</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-07-13T15:11:29Z"
+    >July 13, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/programming/"
+        >programming</a
+      >
+    </li></ul></div>
+  <p><a href="https://www.nair.sh/guides-and-opinions/communicating-your-expertise/why-senior-developers-fail-to-communicate-their-expertise">Tuhin Nair’s article</a> frames a common conflict. A business reduces uncertainty: ship an experiment, learn from the market, choose the next bet. Senior developers manage complexity and stability: keep the system understandable, reliable, and tied to clear responsibility.</p>
+<p>Answering a request with maintenance costs addresses the wrong loop. A better response offers a shorter, cheaper experiment that answers the business question without binding the result to the core system. This turns technical judgment into a path toward evidence.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/communicating-expertise/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/becoming-a-day-person/" class="title-link"
+      >Becoming a day person</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-07-13T15:00:30Z"
+    >July 13, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/habits/"
+        >habits</a
+      >
+    </li></ul></div>
+  <p>Recently read: Herman’s <a href="https://herman.bearblog.dev/becoming-a-day-person/">“On becoming a day person”</a>.</p>
+<p>Herman’s account feels familiar. Poor bedtime and waking discipline made my sleep erratic; insomnia made the pattern hard to break.</p>
+<p>My solution was to get a wife with stronger discipline and piggyback on her routine. Sleeping pills helped make bedtime firm and mornings dependable.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/becoming-a-day-person/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/solving-the-infinite-tabs-problem/" class="title-link"
+      >Solving the infinite tabs problem</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-07-13T14:35:54Z"
+    >July 13, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/productivity/"
+        >productivity</a
+      >
+    </li></ul></div>
+  <p>If you're terminally online like me, your tabs multiply like rabbits during deer season.</p>
+<p>Each tab is a deferred decision, part of a backlog that never clears. There will always be more claims on your attention than you can satisfy.</p>
+<p>Generalize this to everything in life, and you rederive the task management and prioritization problem.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/solving-the-infinite-tabs-problem/">Read more →</a>
+</p>
+
+</article>
+
+
+<!-- Pagination controls -->
+
+<nav class="page-navigation" aria-label="Post list pagination">
+  <span
+    ><a href="https:&#x2F;&#x2F;lenwhite.github.io&#x2F;blog&#x2F;" rel="prev"
+      >← Previous</a
+    ></span
+  >
+
+  <span class="page-navigation-status">
+    Page 2 of 3
+  </span>
+
+  <span
+    ><a href="https:&#x2F;&#x2F;lenwhite.github.io&#x2F;blog&#x2F;page&#x2F;3&#x2F;" rel="next">Next →</a
+    ></span
+  >
+</nav>
+  </main>
+      </div>
+      <aside class="layout-sidebar">
+        <div class="layout-blog-title">
+          <h1>
+            <a
+              href="https://lenwhite.github.io/"
+              class="title-link"
+              >Marginal Contributions</a
+            >
+          </h1>
+          <em>by @lenwhite</em>
+        </div>
+        <div class="layout-sidebar-content">
+          <p class="subtitle">
+            A collection of personal notes, lessons, and learnings, contributing
+            at the margin to the sum of recorded human experiences. Or maybe I'm
+            just adding noise.
+          </p>
+          <nav aria-label="Site navigation">
+            <p><a href="https://lenwhite.github.io/about/">About</a></p>
+            <p>
+              <a href="https://lenwhite.github.io/tags/"
+                >Tags</a
+              >
+            </p>
+          </nav>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>

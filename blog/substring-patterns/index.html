@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marginal Contributions</title>
+    <link rel="icon" type="image/png" href="https://lenwhite.github.io/icon.png" />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/Excalifont-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/ShantellSans-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/FiraCode-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="https://lenwhite.github.io/style.css" />
+  </head>
+
+  <body>
+    <div class="layout-grid">
+      <div class="layout-content">
+        <header class="layout-page-title">
+          
+<h1>Three patterns for substring and subarray questions</h1>
+
+<div class="post-meta">
+  <time datetime="2026-07-14T00:00:00Z"
+    >July 14, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/programming/"
+        >programming</a
+      >
+    </li></ul></div>
+ 
+        </header>
+        <main>
+<p>Coding-interview substring and subarray problems often reduce to one of three patterns.</p>
+<h2 id="1-sliding-window-two-pointers">1. Sliding window (two pointers)</h2>
+<p>Use a sliding window when the constraint changes monotonically as you expand or shrink the window.</p>
+<ul>
+<li><strong>Use it for:</strong> substrings with “at most <code>K</code> distinct characters,” all unique characters, or subarrays with sum constraints when all numbers are nonnegative.</li>
+<li><strong>Core idea:</strong> Expand <code>right</code> to include a new element. If the window becomes invalid, move <code>left</code> until it is valid again.</li>
+</ul>
+<span id="continue-reading"></span>
+<ul>
+<li><strong>Counting pattern:</strong> When removing items from the left preserves validity, every start index from <code>left</code> through <code>right</code> forms a valid window ending at <code>right</code>. Add <code>right - left + 1</code>.</li>
+<li><strong>Complexity:</strong> <code>O(N)</code> time, usually <code>O(1)</code> or <code>O(K)</code> space.</li>
+<li><strong>Classic example:</strong> <em>Number of Substrings With At Most K Distinct Characters.</em> Track character frequencies, shrink until the window has at most <code>K</code> distinct characters, then add <code>right - left + 1</code>.</li>
+</ul>
+<p>For “exactly <code>K</code> distinct characters,” use:</p>
+<p><code>Exactly(K) = AtMost(K) - AtMost(K - 1)</code></p>
+<h2 id="2-prefix-sums-hash-map">2. Prefix sums + hash map</h2>
+<p>Use prefix sums for <strong>subarray</strong> problems with exact algebraic conditions, especially when negative values make a sum-based sliding window unreliable.</p>
+<ul>
+<li><strong>Use it for:</strong> subarrays with sum <code>K</code>, equal numbers of <code>0</code>s and <code>1</code>s, or sums divisible by <code>K</code>.</li>
+<li><strong>Core idea:</strong> The sum from <code>i</code> through <code>j</code> is <code>prefix[j] - prefix[i - 1]</code>. For a target sum <code>T</code>, find earlier prefix sums equal to <code>currentSum - T</code>.</li>
+<li><strong>Execution:</strong> Maintain a running sum and a map from prefix sum to frequency. At each index, add the frequency of <code>currentSum - target</code> to the answer, then record <code>currentSum</code>.</li>
+<li><strong>Complexity:</strong> <code>O(N)</code> time, <code>O(N)</code> space.</li>
+<li><strong>Classic example:</strong> <em>Subarray Sum Equals K.</em></li>
+</ul>
+<h2 id="3-combinatorics">3. Combinatorics</h2>
+<p>Use counting formulas when valid substrings come from independent runs or when every substring is valid.</p>
+<ul>
+<li><strong>Use it for:</strong> substrings made entirely of the same character, or problems where all substrings qualify.</li>
+<li><strong>Core idea:</strong> A string or run of length <code>L</code> contains <code>L(L + 1) / 2</code> non-empty substrings.</li>
+<li><strong>Execution:</strong> Find each contiguous run of equal characters. For a run of length <code>L</code>, add <code>L(L + 1) / 2</code>.</li>
+<li><strong>Complexity:</strong> <code>O(N)</code> time, <code>O(1)</code> space.</li>
+<li><strong>Classic example:</strong> <em>Number of Substrings Containing Only 1s.</em></li>
+</ul>
+<h2 id="quick-diagnostic-checklist">Quick diagnostic checklist</h2>
+<p>When you see a substring or subarray counting problem, ask:</p>
+<ol>
+<li><strong>Is it a subarray problem with an exact algebraic condition, such as sum <code>K</code>, equal <code>0</code>s and <code>1</code>s, or divisibility?</strong><br />
+→ <strong>Prefix sums + hash map.</strong></li>
+<li><strong>Does the constraint support a monotonic window, such as “at most <code>K</code> distinct characters” or a nonnegative sum bound?</strong><br />
+→ <strong>Sliding window.</strong></li>
+<li><strong>Does the answer reduce to counting runs or all possible substrings?</strong><br />
+→ <strong>Combinatorics.</strong></li>
+</ol>
+
+<nav class="page-navigation page-navigation-single" aria-label="Back to home">
+  <a href="https://lenwhite.github.io/">← Back to home</a>
+</nav>
+</main>
+      </div>
+      <aside class="layout-sidebar">
+        <div class="layout-blog-title">
+          <h1>
+            <a
+              href="https://lenwhite.github.io/"
+              class="title-link"
+              >Marginal Contributions</a
+            >
+          </h1>
+          <em>by @lenwhite</em>
+        </div>
+        <div class="layout-sidebar-content">
+          <p class="subtitle">
+            A collection of personal notes, lessons, and learnings, contributing
+            at the margin to the sum of recorded human experiences. Or maybe I'm
+            just adding noise.
+          </p>
+          <nav aria-label="Site navigation">
+            <p><a href="https://lenwhite.github.io/about/">About</a></p>
+            <p>
+              <a href="https://lenwhite.github.io/tags/"
+                >Tags</a
+              >
+            </p>
+          </nav>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>

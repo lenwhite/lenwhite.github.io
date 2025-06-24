@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marginal Contributions</title>
+    <link rel="icon" type="image/png" href="https://lenwhite.github.io/icon.png" />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/Excalifont-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/ShantellSans-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/FiraCode-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="https://lenwhite.github.io/style.css" />
+  </head>
+
+  <body>
+    <div class="layout-grid">
+      <div class="layout-content">
+        <header class="layout-page-title">
+          
+<h1>The base error rate</h1>
+
+<div class="post-meta">
+  <time datetime="2026-07-19T13:51:29Z"
+    >July 19, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li></ul></div>
+ 
+        </header>
+        <main>
+<p>Recently read Nikhil Suresh's <a href="https://ludic.mataroa.blog/blog/ai-mania-is-eviscerating-global-decision-making/">AI Mania Is Eviscerating Global Decision-Making</a>.</p>
+<span id="continue-reading"></span>
+<blockquote>
+<p>Cortex is their AI chatbot layer, with the ability to plug into metadata (for non-nerds, descriptions of your data, like what a column in a spreadsheet means) and query a company’s database autonomously. In theory, you can ask a question like “What was our revenue for last week?” and it will spit out an answer.</p>
+<p>It is not really suitable for production usage. From memory, the last time I was given a presentation on it, by actual Snowflake staff, they reported that ideal configuration results in something like ~92% accuracy due to the complexity of data at a large business (see: probably best-in-class for these tools, but imagine your CFO having one in every ten of their numbers be outright wrong) and there were serious issues with managing deployments. Nonetheless, it can be used to produce some very flashy demonstrations.</p>
+<p>On several occasions, we’ve been exposed to folks that have been sort of lukewarm on our main offerings, but they really, really wanted to use AI to perform a natural language query on their data. And we thought “Okay, if you really want to see it, maybe we can caveat this appropriately and show you what it might look like.”</p>
+<p>This was a terrible mistake. It backfired in the most predictable way imaginable – every lukewarm client that saw the chatbot in action, even with us telling them that it was not going to accomplish what they wanted, wanted to buy it immediately. Every other consideration, including millions of dollars that we could plausibly help them achieve by non-AI means, was swept aside. It was like a dark and terrible force seized control of their limbs, plunged their hands into their own chests, and presented their still-beating credit cards to us in grim supplication. We were so mortified by the inexplicable shift in energy that we (wisely) declined to take the money and ended the sales process, and soon thereafter removed Cortex from our list of demonstrations. It would have been too irresponsible to exploit this gap in their reasoning, and frankly, it was already irresponsible to have even run the demonstration – doctors don’t walk around showing off cool pills that they’d never prescribe.</p>
+</blockquote>
+<p>Am building something very similar with a worse accuracy rate. Except it's used by traders to play with hundreds of thousands of dollars every day.</p>
+<p>Is it bad? IDK. I don't know the base error rate — how often the spreadsheet-and-gut-feel workflow already gets it wrong. Same logic as self-driving cars: doesn't need to be perfect, just needs to beat humans. Warn them the output is speculative and can be wrong. CFOs and analysts make mistakes all the time; a lot of them still use Excel, some use Python scripts unintentionally obfuscated to the point nobody else can read them. The bigger problem is liability transfer — who owns the error when the AI hands a trader a bad number. In my case, that's not a problem. But I get why Hermit Tech won't touch it with a ten-foot pole.</p>
+
+<nav class="page-navigation page-navigation-single" aria-label="Back to home">
+  <a href="https://lenwhite.github.io/">← Back to home</a>
+</nav>
+</main>
+      </div>
+      <aside class="layout-sidebar">
+        <div class="layout-blog-title">
+          <h1>
+            <a
+              href="https://lenwhite.github.io/"
+              class="title-link"
+              >Marginal Contributions</a
+            >
+          </h1>
+          <em>by @lenwhite</em>
+        </div>
+        <div class="layout-sidebar-content">
+          <p class="subtitle">
+            A collection of personal notes, lessons, and learnings, contributing
+            at the margin to the sum of recorded human experiences. Or maybe I'm
+            just adding noise.
+          </p>
+          <nav aria-label="Site navigation">
+            <p><a href="https://lenwhite.github.io/about/">About</a></p>
+            <p>
+              <a href="https://lenwhite.github.io/tags/"
+                >Tags</a
+              >
+            </p>
+          </nav>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>
