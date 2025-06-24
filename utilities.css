@@ -1,0 +1,16 @@
+.subtitle {
+  color: var(--color-text-light);
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Post title link styling */
+a.title-link {
+  color: var(--color-text);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
