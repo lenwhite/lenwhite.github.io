@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marginal Contributions</title>
+    <link rel="icon" type="image/png" href="https://lenwhite.github.io/icon.png" />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/Excalifont-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/ShantellSans-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://lenwhite.github.io/fonts/FiraCode-Variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="https://lenwhite.github.io/style.css" />
+  </head>
+
+  <body>
+    <div class="layout-grid">
+      <div class="layout-content">
+        <header class="layout-page-title">
+          
+<h1>Posts tagged “AI”</h1>
+
+        </header>
+        <main> 
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/notes-on-claude-code-mastery/" class="title-link"
+      >Notes on Claude Code Mastery</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-09-02T02:45:47Z"
+    >September 02, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li></ul></div>
+  <p>Recently read: <a href="https://arps18.github.io/posts/claude-code-mastery/">Arpan Patel, “Beyond the Prompt: Claude Code”</a></p>
+<p><strong>Stuff I disagree with:</strong></p>
+<ul>
+<li><strong>Getting Claude to fill <code>CLAUDE.md</code> with every mistake.</strong> Don't have AI add guardrails to itself. Keep <code>CLAUDE.md</code> minimal and stable, like the Claude Code team's example in the article.</li>
+<li><strong>Overusing other people's Claude Code skills without understanding them.</strong> Treat a skill like a library: understand it before importing it; decide whether to import, roll your own, or do without; know what happens behind the scenes.</li>
+<li><strong>Treating MCPs the same way.</strong> You're not just importing instructions; you're connecting third-party software, often with credentials and access to local or remote systems. Much larger supply-chain/security surface.</li>
+<li><strong>Installing a language server plugin.</strong> Most LSP plugins add noise and bloat context. A post-edit lint hook is often enough. Or nothing—the models are pretty good at linting, formatting, and testing their changes.</li>
+</ul>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/notes-on-claude-code-mastery/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+ 
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/speed-fidelity-thickness/" class="title-link"
+      >Speed, Fidelity, and Thickness</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-08-23T10:58:29Z"
+    >August 23, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/programming/"
+        >programming</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/writing/"
+        >writing</a
+      >
+    </li></ul></div>
+  <p>Three related articles, with minimal commentary:</p>
+<p>Florian Herrengt, <a href="https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html">“AI is removing the middle class of software engineering”</a>:</p>
+<details>
+  <summary>Excerpts</summary>
+
+  <blockquote>
+<p>AI removed the speed limit</p>
+<p>AI makes projects with weak engineering culture fail much faster.</p>
+<p>There used to be a time when people sat down and talked about how they'd do something. Now they can just prompt an agent for a few hours and open a PR.</p>
+<p>The most tragic aspect of this way of working is that, to the untrained eye, it works.</p>
+<p>If you pull the branch and test it, you'll probably get something somewhat functional. So what do they do? They keep going. Again and again. Until the project reaches a point where no one knows how anything works.</p>
+<p>Just like someone buying a new luxury car on a credit card. You don't see the debt. You just see the car that looks great.</p>
+</blockquote>
+<blockquote>
+<p>“Bad engineers always existed”</p>
+<p>The difference is the speed.</p>
+<p>It is the difference between crashing at 30 km/h and crashing at 200 km/h. Before AI, a bad engineer would struggle to produce code that even compiled. When they did produce something, it took them a long time and the blast radius was limited. The damage was bounded by how fast a human could type.</p>
+<p>Now a bad engineer can produce 10,000 lines of working code before lunch. The damage we can do in an afternoon used to take them months. The speed at which bad decisions compound has changed completely while the speed at which you can fix them has not.</p>
+</blockquote>
+<blockquote>
+<p>“Will anyone actually care?”</p>
+<p>They will care when nothing works, nobody seems able to fix it, building new features takes forever and every change breaks something somewhere else.</p>
+<p>This was already happening before AI. But now, a lot more companies that previously might have taken many years to reach an unmaintainable state can get there in just a few months.</p>
+</blockquote>
+
+</details>
+<p>Reminder: being good at software engineering isn't just about algorithms or systems design or whatever. Even pre-LLMs, it 100% definitely wasn't correlated with how fast you can put out new features.</p>
+<p>It's about creating a system that's easy to reason about: easy to debug, easy to change, and hard to break—even when it's complicated.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/speed-fidelity-thickness/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+ 
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/simon-willison-john-gruber-blogging/" class="title-link"
+      >Simon Willison &amp; John Gruber on Blogging</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-08-11T17:51:25Z"
+    >August 11, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/writing/"
+        >writing</a
+      >
+    </li></ul></div>
+  <p>Simon Willison, <a href="https://simonwillison.net/2026/Aug/6/simon-willison-on-technical-blogging/">“Simon Willison on Technical Blogging”</a>:</p>
+<blockquote>
+<p>My number one tip for blogging is to lower your standards! Aim to hit publish while you are still actively unhappy with what you have written, because the only alternative is a huge folder full of drafts and never publishing anything at all.</p>
+<p>Nobody will ever know how perfect the thing you intended to write would have been. The flaws you see in your writing are invisible to everyone else.</p>
+</blockquote>
+<p>John Gruber, <a href="https://daringfireball.net/linked/2026/08/07/simon-willison-on-blogging">“Simon Willison on Blogging”</a>:</p>
+<blockquote>
+<p>Me, I try to get into the mindset of playing live music, not recording a studio album. Except when I’m writing a piece where I really want it to be an album. Those aren’t rare, per se, but they’re occasional. If I tried to make every post a hall-of-famer I’d never get anything out.</p>
+<p>I’m aiming for professionalism. I’m performing live in front of an audience — not just jamming in my garage or bedroom, fucking around. So I’m careful and concentrate. I want to hit every note, in time. But at my best I’m moving from song to song.</p>
+</blockquote>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/simon-willison-john-gruber-blogging/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+ 
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/knowledge-work-isnt-hard/" class="title-link"
+      >Knowledge work isn&#x27;t hard</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-08-10T08:47:21Z"
+    >August 10, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/programming/"
+        >programming</a
+      >
+    </li></ul></div>
+  <p>Read <em><a href="https://blog.senko.net/code-was-never-the-hard-part-is-an-insult-to-all-programmers">"Code was never the hard part" is an insult to all programmers</a></em>.</p>
+<p>Widely shared on Hacker News and Lobsters — how much of that is fact vs. flattering to our egos as developers is hard to say. We want to feel like we're doing something <em>difficult</em>. Not quite rocket surgery, but by jove, not just anyone can write code!</p>
+<p>It also happens to justify our salary.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/knowledge-work-isnt-hard/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+ 
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/content-before-bento/" class="title-link"
+      >Content before Bento</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-08-09T02:54:57Z"
+    >August 09, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li></ul></div>
+  <p>I tried <a href="https://bento.page/">Bento</a> for a few slide decks.</p>
+<p>Disclaimer: slides have never been my strong suit.</p>
+<p>It's an interesting project. But when I had an agent one-shot a presentation, the slides flowed poorly and the content was shallow.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/content-before-bento/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+ 
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/the-base-error-rate/" class="title-link"
+      >The base error rate</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-07-19T13:51:29Z"
+    >July 19, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li></ul></div>
+  <p>Recently read Nikhil Suresh's <a href="https://ludic.mataroa.blog/blog/ai-mania-is-eviscerating-global-decision-making/">AI Mania Is Eviscerating Global Decision-Making</a>.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/the-base-error-rate/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+ 
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/bad-tests-ossify/" class="title-link"
+      >Bad tests ossify</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-07-14T09:25:51Z"
+    >July 14, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/programming/"
+        >programming</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li></ul></div>
+  <p>matklad’s <a href="https://matklad.github.io/2021/05/31/how-to-test.html">How to Test</a> is one of the best articles on testing. 10/10. Almost all of it is right.</p>
+<p>My own two cents: No tests beat <em>bad</em> tests.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/bad-tests-ossify/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+ 
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/exe-dev/" class="title-link"
+      >Stanning exe.dev</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-07-13T16:25:56Z"
+    >July 13, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li></ul></div>
+  <p>It's fast. It's fun. It's software prototyping, pet projects, and agent sandboxes rolled into one giant bouncy endorphin rollercoaster.</p>
+<p>For personal reasons, I'm late to the persistent-agents-and-coding-from-phones party. My home server died, and I couldn't summon the motivation to scavenge for parts. I've worked from laptops ever since: no persistence, no remote Claude Code sessions, no blinking lights.</p>
+<p>Anyway: exe.dev is the easiest way I've found to dip your toes into coding agents from your phone.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/exe-dev/">Read more →</a>
+</p>
+
+</article>
+
+<hr />
+ 
+<article>
+  <h2>
+    <a href="https://lenwhite.github.io/blog/communicating-expertise/" class="title-link"
+      >Communicating expertise</a
+    >
+  </h2>
+  
+<div class="post-meta">
+  <time datetime="2026-07-13T15:11:29Z"
+    >July 13, 2026</time
+  ><span aria-hidden="true">·</span>
+  <ul class="tag-list" aria-label="Tags"><li>
+      <a href="https://lenwhite.github.io/tags/ai/"
+        >AI</a
+      >
+    </li><li>
+      <a href="https://lenwhite.github.io/tags/programming/"
+        >programming</a
+      >
+    </li></ul></div>
+  <p><a href="https://www.nair.sh/guides-and-opinions/communicating-your-expertise/why-senior-developers-fail-to-communicate-their-expertise">Tuhin Nair’s article</a> frames a common conflict. A business reduces uncertainty: ship an experiment, learn from the market, choose the next bet. Senior developers manage complexity and stability: keep the system understandable, reliable, and tied to clear responsibility.</p>
+<p>Answering a request with maintenance costs addresses the wrong loop. A better response offers a shorter, cheaper experiment that answers the business question without binding the result to the core system. This turns technical judgment into a path toward evidence.</p>
+
+<p class="read-more">
+  <a href="https://lenwhite.github.io/blog/communicating-expertise/">Read more →</a>
+</p>
+
+</article>
+ 
+<nav class="page-navigation page-navigation-single" aria-label="Back to tags">
+  <a href="https://lenwhite.github.io/tags/">← All tags</a>
+</nav>
+</main>
+      </div>
+      <aside class="layout-sidebar">
+        <div class="layout-blog-title">
+          <h1>
+            <a
+              href="https://lenwhite.github.io/"
+              class="title-link"
+              >Marginal Contributions</a
+            >
+          </h1>
+          <em>by @lenwhite</em>
+        </div>
+        <div class="layout-sidebar-content">
+          <p class="subtitle">
+            A collection of personal notes, lessons, and learnings, contributing
+            at the margin to the sum of recorded human experiences. Or maybe I'm
+            just adding noise.
+          </p>
+          <nav aria-label="Site navigation">
+            <p><a href="https://lenwhite.github.io/about/">About</a></p>
+            <p>
+              <a href="https://lenwhite.github.io/tags/"
+                >Tags</a
+              >
+            </p>
+          </nav>
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>
