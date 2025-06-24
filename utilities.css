@@ -1,0 +1,32 @@
+.title {
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--color-text-light);
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.section {
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Post title link styling */
+a.title-link {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+a.title-link:hover,
+a.title-link:focus {
+  text-decoration: underline;
+}
+
+.extended-figure {
+    position: relative;
+    max-width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
